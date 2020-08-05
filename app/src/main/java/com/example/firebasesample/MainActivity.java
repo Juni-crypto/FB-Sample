@@ -2,6 +2,7 @@ package com.example.firebasesample;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,45 +13,37 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    EditText etName;
-    EditText etRollno;
-    Spinner  spinnerCourses;
     Button  btnInsertData;
-
-    DatabaseReference studentDbRef;
+    Button  btnRetreiveData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        etName = findViewById(R.id.etName);
-        etRollno = findViewById(R.id.etRollno);
-        spinnerCourses = findViewById(R.id.spinnerCourse);
         btnInsertData = findViewById(R.id.btnInsertData);
+        btnRetreiveData = findViewById(R.id.btnRetreiveData);
 
-        studentDbRef = FirebaseDatabase.getInstance().getReference().child("Students");
-
-        btnInsertData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                insertStudentData();
-            }
-        });
+        btnInsertData.setOnClickListener(this);
+        btnRetreiveData.setOnClickListener(this);
 
     }
 
-    private void insertStudentData(){
+    @Override
+    public void onClick(View view) {
 
-        String name = etName.getText().toString();
-        String rollno = etRollno.getText().toString();
-        String course = spinnerCourses.getSelectedItem().toString();
+        switch (view.getId()){
 
-        Students students = new Students(name,rollno,course);
+            case R.id.btnInsertData:
+                startActivity(new Intent(MainActivity.this,InsertingDataActivity.class));
+                break;
 
-        studentDbRef.push().setValue(students);
-        Toast.makeText(MainActivity.this,"Data inserted!",Toast.LENGTH_SHORT).show();
+            case R.id.btnRetreiveData:
+                startActivity(new Intent(MainActivity.this,RetreiveDataActivity.class));
+                break;
+        }
+
     }
 }

@@ -11,6 +11,9 @@ public class Students {
     String rollno;
     String course;
 
+    public Students() {
+    }
+
     public Students(String name, String rollno, String course) {
         this.name = name;
         this.rollno = rollno;
