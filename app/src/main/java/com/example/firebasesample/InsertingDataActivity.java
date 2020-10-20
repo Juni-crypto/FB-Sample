@@ -43,8 +43,11 @@ public class InsertingDataActivity extends AppCompatActivity {
         String rollno = etRollno.getText().toString();
         String course = spinnerCourses.getSelectedItem().toString();
 
-        Students students = new Students(name,rollno,course);
-        studentDbRef.push().setValue(students);
+        String id = studentDbRef.push().getKey();
+
+        Students students = new Students(id,name,rollno,course);
+        assert id != null;
+        studentDbRef.child(id).setValue(students);
         Toast.makeText(InsertingDataActivity.this,"Data inserted!",Toast.LENGTH_SHORT).show();
     }
 }

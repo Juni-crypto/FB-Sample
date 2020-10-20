@@ -2,6 +2,7 @@ package com.example.firebasesample;
 
 import android.app.Activity;
 import android.app.Notification;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
