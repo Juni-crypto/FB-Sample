@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="12dp"
-    android:background="#059BE5"
+    android:background="#88000000"
     tools:context=".MainActivity">
 
     <ImageView
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:src="@drawable/firebase_image"
+        android:src="@drawable/neony_1579755558561"
         android:layout_gravity="center"
         android:textSize="45sp"
         android:gravity="center"/>
@@ -19,9 +19,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Inserting data"
+        android:text="Placement willing db"
         android:fontFamily="sans-serif"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="45sp"
         android:gravity="center"/>
 
@@ -30,6 +30,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter name"
+        android:textColor="#ffff"
+        android:textColorHint="#ffff"
         android:layout_marginTop="20dp"/>
 
     <EditText
@@ -37,6 +39,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter rollno"
+        android:textColor="#ffff"
+        android:textColorHint="#ffff"
         android:layout_marginTop="20dp"/>
 
     <Spinner
